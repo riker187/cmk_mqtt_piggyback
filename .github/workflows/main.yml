@@ -1,22 +1,23 @@
-name: Build MKP tar.gz
+name: Create gzip archive of repository
 
 on:
   push:
     branches:
-      - main
-  workflow_dispatch:
+      - '**'   # Bei jedem Push auf allen Branches
 
 jobs:
-  build:
+  archive:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v4
-      - name: Create tar.gz archive
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create gzip archive
         run: |
-              tar --exclude='.git' --exclude='.github' --exclude='cmk_mqtt_piggyback.mkp' -czf cmk_mqtt_piggyback.tar.gz info agents checks web
+          tar -czf cmk_mqtt_piggybacktar.gz . --exclude='.git' --exclude='.github'
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: cmk_mqtt_piggyback
-          path: cmk_mqtt_piggyback.mkp
+          path: cmk_mqtt_piggyback.tar.gz
