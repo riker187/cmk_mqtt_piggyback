@@ -1,0 +1,11 @@
+title: MQTT Piggyback Integration
+description: >
+  Verbindet sich mit einem MQTT Broker, abonniert konfigurierbare Topics und liefert die empfangenen Nachrichten als Piggyback-Daten an Checkmk-Hosts.
+version: 1.0
+packaged_at: 2024-08-08
+created_at: 2024-08-08
+author: Jens Constroffer
+files:
+  - agents/special/cmk_mqtt_piggyback.py
+  - web/plugins/wato/cmk_mqtt_piggyback.py
+  - info
