@@ -14,7 +14,7 @@ jobs:
 
       - name: Create gzip archive
         run: |
-          tar -czf cmk_mqtt_piggyback.tar.gz ./*
+          tar -czf cmk_mqtt_piggyback.tar.gz ./* --exclude='mk_mqtt_piggyback.tar.gz'
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
