@@ -1,0 +1,22 @@
+name: Build MKP tar.gz
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create tar.gz archive
+        run: |
+          tar --exclude='.git' -czf my_mkp_package.tar.gz *
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cmk_mqtt_piggyback
+          path: cmk_mqtt_piggyback.mkp

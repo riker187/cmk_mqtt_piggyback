@@ -1,0 +1,6 @@
+name: cmk_mqtt_piggyback
+version: 1.0
+packaged_at: 2025-07-08
+description: "MQTT Piggyback Plugin for Checkmk"
+author: Jens Constroffer
+compatible: 2.1, 2.2
