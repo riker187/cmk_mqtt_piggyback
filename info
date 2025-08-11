@@ -1,7 +1,9 @@
 name: cmk_mqtt_piggyback
+title: "MQTT Piggyback Plugin"
 version: 1.0
-packaged_at: 2025-07-08
+packaged_at: 2025-08-11
 description: "MQTT Piggyback Plugin for Checkmk"
 author: Jens Constroffer
 compatible: 2.1, 2.2
+prerequisites: "checkmk >= 2.1"
 requires: paho-mqtt (muss auf dem Agent-System installiert sein)
