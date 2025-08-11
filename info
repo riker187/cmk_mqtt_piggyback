@@ -6,3 +6,4 @@ description: "MQTT Piggyback Plugin for Checkmk"
 author: Jens Constroffer
 compatible: 2.1, 2.2
 prerequisites: "checkmk >= 2.1"
+requires: paho-mqtt (muss auf dem Agent-System installiert sein)
