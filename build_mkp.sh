@@ -9,11 +9,16 @@ set -euo pipefail
 # repository. We therefore explicitly point mkp to the current
 # repository root so that the files from the agents/, checks/ and web/
 # folders are found correctly.
-
+#
+# Depending on the Checkmk version, the -d option may have to be supplied
+# in different ways or not at all. We try the supported variants in order,
+# stopping once one succeeds.
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-# Older versions of Checkmk expect the -d option *before* the subcommand.
-# Newer versions moved it behind the subcommand. Try the modern syntax first
-# and fall back to the legacy order for older Checkmk releases.
-if ! mkp package -d "$SCRIPT_DIR" "$SCRIPT_DIR/manifest"; then
+
+if mkp package "$SCRIPT_DIR/manifest"; then
+    :
+elif mkp package -d "$SCRIPT_DIR" "$SCRIPT_DIR/manifest"; then
+    :
+else
     mkp -d "$SCRIPT_DIR" package "$SCRIPT_DIR/manifest"
 fi
