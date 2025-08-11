@@ -13,7 +13,7 @@ Dieses Repository enthält ein Beispiel für eine Checkmk-Erweiterung, die Piggy
    Dateien innerhalb dieses Repositorys findet, muss das Wurzelverzeichnis
    angegeben werden:
    ```bash
-   mkp package -d . manifest
+   mkp -d . package manifest
    ```
    Zur Vereinfachung steht zusätzlich das Skript `build_mkp.sh`
    zur Verfügung:
