@@ -19,6 +19,8 @@ if mkp package "$SCRIPT_DIR/manifest"; then
     :
 elif mkp package -d "$SCRIPT_DIR" "$SCRIPT_DIR/manifest"; then
     :
+elif mkp package "$SCRIPT_DIR/manifest" -d "$SCRIPT_DIR"; then
+    :
 else
     mkp -d "$SCRIPT_DIR" package "$SCRIPT_DIR/manifest"
 fi
