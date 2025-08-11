@@ -1,9 +1,12 @@
 # manifest
 {
     'name': 'cmk_mqtt_piggyback',
+    'title': 'MQTT Piggyback Plugin',
     'version': '1.0.0',
-    'packaged_at': '2025-08-08',
-    'created_by': 'Jens Constroffer',
+    'version.packaged': '2025-08-08',
+    'version.min_required': '2.0.0',
+    'author': 'Jens Constroffer',
+    'download_url': 'https://example.com/cmk_mqtt_piggyback',
     'description': 'MQTT Piggyback Plugin für Checkmk',
     'compat': '2.0, 2.1, 2.2',
     'tags': ['monitoring', 'mqtt'],
