@@ -9,11 +9,19 @@ Dieses Repository enthält ein Beispiel für eine Checkmk-Erweiterung, die Piggy
    ```bash
    cmk -v pack mkp
    ```
-   Alternativ kann das `mkp`-Werkzeug genutzt werden:
+   Alternativ kann das `mkp`-Werkzeug genutzt werden. Damit `mkp` die
+   Dateien innerhalb dieses Repositorys findet, muss das Wurzelverzeichnis
+   angegeben werden:
    ```bash
-   mkp package
+   mkp package -d . manifest
    ```
-   Nach dem Bauen befindet sich die Datei `cmk_mqtt_piggyback-<version>.mkp` im aktuellen Verzeichnis.
+   Zur Vereinfachung steht zusätzlich das Skript `build_mkp.sh`
+   zur Verfügung:
+   ```bash
+   ./build_mkp.sh
+   ```
+   Nach dem Bauen befindet sich die Datei `cmk_mqtt_piggyback-<version>.mkp`
+   im aktuellen Verzeichnis.
 
 ## Installation auf dem Checkmk-Server
 
@@ -30,10 +38,11 @@ Dieses Repository enthält ein Beispiel für eine Checkmk-Erweiterung, die Piggy
 
 ## Installation auf dem Checkmk-Agenten
 
-1. Nach der Installation enthält das Paket ein Agenten-Plugin unter `agents/plugins/cmk_mqtt_pighgyback.py`.
+1. Nach der Installation enthält das Paket ein Agenten-Plugin unter `agents/plugins/cmk_mqtt_piggyback.py`.
 2. Kopieren Sie diese Datei auf den Zielhost nach `/usr/lib/check_mk_agent/plugins/` (Linux).
 3. Machen Sie das Skript ausführbar:
    ```bash
-   chmod +x /usr/lib/check_mk_agent/plugins/cmk_mqtt_pighgyback.py
+   chmod +x /usr/lib/check_mk_agent/plugins/cmk_mqtt_piggyback.py
    ```
-4. Führen Sie einen Agenten-Update (`check_mk_agent`) aus, um die Piggyback-Daten zu prüfen.
+4. Führen Sie einen Agenten-Update (`check_mk_agent`) aus, um die
+   Piggyback-Daten zu prüfen.
