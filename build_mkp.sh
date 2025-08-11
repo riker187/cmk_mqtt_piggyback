@@ -12,5 +12,8 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # Older versions of Checkmk expect the -d option *before* the subcommand.
-# Use the correct order so that the repository root is respected.
-mkp -d "$SCRIPT_DIR" package "$SCRIPT_DIR/manifest"
+# Newer versions moved it behind the subcommand. Try the modern syntax first
+# and fall back to the legacy order for older Checkmk releases.
+if ! mkp package -d "$SCRIPT_DIR" "$SCRIPT_DIR/manifest"; then
+    mkp -d "$SCRIPT_DIR" package "$SCRIPT_DIR/manifest"
+fi
