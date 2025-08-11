@@ -11,5 +11,5 @@ tags              = monitoring,mqtt
 files             = agent_based, web, gui, agents, plugins
 
 [files]
-agents/cmk_mqtt_piggyback.py
-web/plugins/wato/cmk_mqtt_piggyback.py
+agents/plugins/cmk_mqtt_piggyback.py
+web/plugins/wato/agent_mqtt_piggyback.py
