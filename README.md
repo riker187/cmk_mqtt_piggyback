@@ -6,16 +6,7 @@ Dieses Repository enthält ein Beispiel für eine Checkmk-Erweiterung, die Piggy
 
 1. Abhängigkeiten installieren und in das Projektverzeichnis wechseln.
 2. Paket erstellen:
-   ```bash
-   cmk -v pack mkp
-   ```
-   Alternativ kann das `mkp`-Werkzeug genutzt werden. Damit `mkp` die
-   Dateien innerhalb dieses Repositorys findet, muss das Wurzelverzeichnis
-   angegeben werden:
-   ```bash
-   mkp -d . package manifest
-   ```
-   Zur Vereinfachung steht zusätzlich das Skript `build_mkp.sh`
+      Zur Vereinfachung steht zusätzlich das Skript `build_mkp.sh`
    zur Verfügung:
    ```bash
    ./build_mkp.sh
