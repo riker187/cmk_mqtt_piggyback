@@ -1,17 +1,18 @@
 # manifest
-
-[info]
-name              = cmk_mqtt_piggyback
-version           = 1.0.0
-packaged_at       = 2025-8-8
-created_by        = Jens Constroffer
-description       = MQTT Piggyback Plugin für Checkmk
-compat            = 2.0, 2.1, 2.2
-tags              = monitoring,mqtt
-files             = agent_based, web, gui, agents, plugins
-
-[files]
-agents/plugins/cmk_mqtt_pighgyback.py
-web/plugins/wato/agent_mqtt_piggyback.py
-checks/mqtt_status.py
-web/plugins/wato/mqtt_status.py
+{
+    'name': 'cmk_mqtt_piggyback',
+    'version': '1.0.0',
+    'packaged_at': '2025-08-08',
+    'created_by': 'Jens Constroffer',
+    'description': 'MQTT Piggyback Plugin für Checkmk',
+    'compat': '2.0, 2.1, 2.2',
+    'tags': ['monitoring', 'mqtt'],
+    'files': {
+        'agents': ['plugins/cmk_mqtt_piggyback.py'],
+        'checks': ['mqtt_status.py'],
+        'web': [
+            'plugins/wato/agent_mqtt_piggyback.py',
+            'plugins/wato/mqtt_status.py',
+        ],
+    },
+}
