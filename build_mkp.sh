@@ -15,6 +15,7 @@ set -euo pipefail
 # stopping once one succeeds.
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+
 if mkp package "$SCRIPT_DIR/manifest"; then
     :
 elif mkp package -d "$SCRIPT_DIR" "$SCRIPT_DIR/manifest"; then
