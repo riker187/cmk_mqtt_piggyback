@@ -11,4 +11,6 @@ set -euo pipefail
 # folders are found correctly.
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-mkp package -d "$SCRIPT_DIR" "$SCRIPT_DIR/manifest"
+# Older versions of Checkmk expect the -d option *before* the subcommand.
+# Use the correct order so that the repository root is respected.
+mkp -d "$SCRIPT_DIR" package "$SCRIPT_DIR/manifest"
