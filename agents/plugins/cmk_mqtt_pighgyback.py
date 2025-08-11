@@ -3,6 +3,7 @@ import sys
 import time
 import argparse
 import json
+import os
 import paho.mqtt.client as mqtt
 
 def on_message(client, userdata, msg):
@@ -36,7 +37,13 @@ def main():
     for topic in args.mqtt_topics.split(","):
         client.subscribe(topic.strip())
 
-    client.loop_forever()
+    # Run the MQTT loop only for a short period so that the agent
+    # returns within the typical runtime (<60s).
+    end_time = time.time() + 55
+    while time.time() < end_time:
+        client.loop(timeout=1.0)
+
+    client.disconnect()
 
 if __name__ == "__main__":
     main()
