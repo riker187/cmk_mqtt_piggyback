@@ -11,11 +11,11 @@
     'compat': '2.0, 2.1, 2.2',
     'tags': ['monitoring', 'mqtt'],
     'files': {
-        'agents': ['plugins/cmk_mqtt_piggyback.py'],
-        'checks': ['mqtt_status.py'],
+        'agents': ['/tmp/cmk_mqtt_piggyback/plugins/cmk_mqtt_piggyback.py'],
+        'checks': ['/tmp/cmk_mqtt_piggyback/mqtt_status.py'],
         'web': [
-            'plugins/wato/agent_mqtt_piggyback.py',
-            'plugins/wato/mqtt_status.py',
+            '/tmp/cmk_mqtt_piggyback/plugins/wato/agent_mqtt_piggyback.py',
+            '/tmp/cmk_mqtt_piggyback/plugins/wato/mqtt_status.py',
         ],
     },
 }
